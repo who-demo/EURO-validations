@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "customer_id": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "payment_mode": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 4000
+    },
+    "date": {
+      "type": "string"
+    },
+    "reference_number": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "invoices": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "invoice_id": {
+              "type": "string"
+            },
+            "amount_applied": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "invoice_id",
+            "amount_applied"
+          ]
+        }
+      ]
+    },
+    "exchange_rate": {
+      "type": "integer"
+    },
+    "bank_charges": {
+      "type": "integer"
+    },
+    "custom_fields": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "label",
+            "value"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "customer_id",
+    "payment_mode",
+    "amount",
+    "date",
+    "reference_number",
+    "description",
+    "invoices",
+    "exchange_rate",
+    "bank_charges",
+    "custom_fields"
+  ]
+}
